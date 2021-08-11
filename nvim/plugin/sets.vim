@@ -1,4 +1,3 @@
-set exrc
 set guicursor=
 set rnu
 set nohlsearch
@@ -23,4 +22,3 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
-

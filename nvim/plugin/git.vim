@@ -6,4 +6,3 @@ nnoremap <leader>gc :GCheckout <CR>
 nmap <leader>gs :G<CR>
 nmap <leader>f :diffget //2<CR>
 nmap <leader>j :diffget //3<CR>
-

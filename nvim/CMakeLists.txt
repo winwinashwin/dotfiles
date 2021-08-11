@@ -1,0 +1,10 @@
+set(NVIM_DIR $ENV{HOME}/.config/nvim)
+
+install(FILES init.vim
+        DESTINATION ${NVIM_DIR}
+        PERMISSIONS OWNER_READ GROUP_READ)
+
+install(DIRECTORY plugin
+        DESTINATION ${NVIM_DIR}
+        FILES_MATCHING PATTERN "*.vim"
+        PERMISSIONS OWNER_READ GROUP_READ)

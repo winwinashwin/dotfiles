@@ -1,0 +1,3 @@
+install(FILES .inputrc
+        DESTINATION $ENV{HOME}
+        PERMISSIONS OWNER_READ GROUP_READ)
