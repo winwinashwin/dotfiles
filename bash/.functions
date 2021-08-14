@@ -72,6 +72,6 @@ gt () {
     local file="$1"
     rm -f "$file"
 
-    sed -e "s;%date%;$(date);g" $HOME/.config/nvim/templates/cp.cpp > "$file"
-    vim +/SOLUTION $file
+    sed -e "s;%date%;$(date);g" $HOME/.config/nvim/templates/soln.cpp > "$file"
+    vim +/solution $file
 }

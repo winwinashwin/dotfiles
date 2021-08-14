@@ -1,3 +1,5 @@
+syntax on
+
 set guicursor=
 set rnu
 set nohlsearch
@@ -21,4 +23,4 @@ set cmdheight=1
 set updatetime=50
 set shortmess+=c
 
-set colorcolumn=80
+set colorcolumn=100
