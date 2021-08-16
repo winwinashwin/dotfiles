@@ -2,7 +2,7 @@
 ### Fix Kazam codec issue
 fix_kazam () {
 	local fin=$(echo "$1" | cut -f 1 -d '.')
-	local fout=${InFile}_out
+	local fout=${fin}_out
 
 	ffmpeg -y -i ${fin}.mp4 -c:v libx264 -c:a aac -strict experimental -tune fastdecode -pix_fmt yuv420p -b:a 192k -ar 48000 ${fout}.mp4
 }
