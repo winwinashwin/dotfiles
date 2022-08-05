@@ -1,3 +1,0 @@
-# I like to keep a temporary directory in home, don't wanna clutter my downloads
-@reboot ashwin rm -rf /home/ashwin/tmp && mkdir /home/ashwin/tmp
-

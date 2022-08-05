@@ -1,4 +1,4 @@
-for file in ~/.{alias,env,functions,rosdev}; do
+for file in ~/.bash_{alias,env,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -29,4 +29,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+. "$HOME/.cargo/env"
+source ~/.bash_completion.d/alacritty
 eval "$(starship init bash)"

@@ -1,3 +1,4 @@
+/sandbox/**
 cmake-build-*
 .idea
 build/*

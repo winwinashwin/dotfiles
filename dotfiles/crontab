@@ -1,0 +1,1 @@
+@reboot rm -rf {{HOME}}/tmp && mkdir {{HOME}}/tmp
