@@ -1,0 +1,30 @@
+[alias]
+    a  = add
+    aa = add --all
+
+    c  = commit
+    cm = commit --message
+
+    l  = log
+    lo = log --oneline
+
+    s  = status
+
+[core]
+    editor = vim
+    pager  = most
+
+[color]
+    ui = auto
+
+[commit]
+    gpgsign = true
+
+[push]
+    default = current
+
+[init]
+    defaultBranch = main
+[user]
+	email = ashwin5059198@gmail.com
+	name = Ashwin A Nayar
