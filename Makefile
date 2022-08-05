@@ -25,12 +25,14 @@ all: $(DEFAULT_INSTALL_TARGETS)
 	
 .PHONY: .nvim
 .nvim: $(D_DOTFILES)/nvim
+	@rm -rf $(D_HOME)/.config/nvim
 	@echo "Installing config [nvim]"
 	@mkdir -p $(D_HOME)/.config
 	@ln -sf $< $(D_HOME)/.config/nvim
 
 .PHONY: .alacritty
 .alacritty: $(D_DOTFILES)/alacritty
+	@rm -rf $(D_HOME)/.config/alacritty
 	@echo "Installing config [alacritty]"
 	@mkdir -p $(D_HOME)/.config
 	@ln -sf $< $(D_HOME)/.config/alacritty
