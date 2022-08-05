@@ -12,4 +12,5 @@ cd ~/.dotfiles && make
 - Bash
 - Alacritty
 - tmux
+- Neovim
 
