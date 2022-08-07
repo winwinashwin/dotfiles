@@ -12,3 +12,4 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias cat=bat
