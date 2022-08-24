@@ -6,7 +6,7 @@ D_ROOT      := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 D_HOME      := $(HOME)
 D_DOTFILES  := $(D_ROOT)/dotfiles
 
-DEFAULT_INSTALL_TARGETS := .bash .tmux .nvim .alacritty .inputrc .git .scripts .cronjobs dconf.load
+DEFAULT_INSTALL_TARGETS := .bash .tmux .nvim .alacritty .inputrc .git .neofetch .scripts .cronjobs dconf.load
 
 $(info => Using HOME = ${D_HOME})
 
@@ -46,6 +46,13 @@ all: $(DEFAULT_INSTALL_TARGETS)
 .git: $(shell find $(D_DOTFILES)/git -type f)
 	@echo "Installing config [git]"
 	@ln -sf $^ $(D_HOME)
+
+.PHONY: .neofetch
+.neofetch: $(D_DOTFILES)/neofetch
+	@rm -rf $(D_HOME)/.config/neofetch
+	@echo "Installing config [neofetch]"
+	@mkdir -p $(D_HOME)/.config
+	@ln -sf $< $(D_HOME)/.config/neofetch
 
 .PHONY: .scripts
 .scripts: $(shell find $(D_ROOT)/scripts -type f)

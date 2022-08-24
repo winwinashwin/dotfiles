@@ -31,4 +31,5 @@ fi
 
 . "$HOME/.cargo/env"
 source ~/.bash_completion.d/alacritty
+neofetch
 eval "$(starship init bash)"
