@@ -6,7 +6,7 @@ D_ROOT      := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 D_HOME      := $(HOME)
 D_DOTFILES  := $(D_ROOT)/dotfiles
 
-DEFAULT_INSTALL_TARGETS := .bash .tmux .nvim .alacritty .inputrc .git .cronjobs 
+DEFAULT_INSTALL_TARGETS := .bash .tmux .nvim .alacritty .inputrc .git .neofetch .scripts .cronjobs dconf.load
 
 $(info => Using HOME = ${D_HOME})
 
@@ -47,6 +47,18 @@ all: $(DEFAULT_INSTALL_TARGETS)
 	@echo "Installing config [git]"
 	@ln -sf $^ $(D_HOME)
 
+.PHONY: .neofetch
+.neofetch: $(D_DOTFILES)/neofetch
+	@rm -rf $(D_HOME)/.config/neofetch
+	@echo "Installing config [neofetch]"
+	@mkdir -p $(D_HOME)/.config
+	@ln -sf $< $(D_HOME)/.config/neofetch
+
+.PHONY: .scripts
+.scripts: $(shell find $(D_ROOT)/scripts -type f)
+	@echo "Installing scripts"
+	@sudo ln -sf $^ /usr/local/bin
+
 .PHONY: .cronjobs
 .cronjobs: .crontab.tmp
 	@echo "Installing cronjobs"
@@ -59,6 +71,17 @@ all: $(DEFAULT_INSTALL_TARGETS)
 	@echo "Updating cronjobs"
 	@cat $< | awk '{print $$0, "   ## dotfiles"}' >> $@
 	@sed -i 's|{{HOME}}|$(D_HOME)|g' $@
+
+.PHONY: dconf.load
+dconf.load:
+	@echo "Loading dconf"
+	@dconf load /org/gnome/desktop/wm/ < $(D_DOTFILES)/dconf-gnome/org.gnome.desktop.wm.conf
+	@dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $(D_DOTFILES)/dconf-gnome/org.gnome.settings-daemon.plugins.media-keys.conf
+
+.PHONY: dconf.dump
+dconf.dump:
+	@dconf dump /org/gnome/desktop/wm/ > $(D_DOTFILES)/dconf-gnome/org.gnome.desktop.wm.conf
+	@dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > $(D_DOTFILES)/dconf-gnome/org.gnome.settings-daemon.plugins.media-keys.conf
 
 .PHONY: help
 help:

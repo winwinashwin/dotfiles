@@ -13,3 +13,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias syu='sudo apt update && sudo apt upgrade --auto-remove'
+alias cat=bat
