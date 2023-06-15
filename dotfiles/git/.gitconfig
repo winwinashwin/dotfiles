@@ -24,7 +24,7 @@
     default = current
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 [user]
 	email = ashwin5059198@gmail.com
 	name = Ashwin A Nayar

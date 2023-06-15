@@ -1,2 +1,2 @@
-colorscheme gruvbox
-set background=dark
+" colorscheme gruvbox
+" set background=dark

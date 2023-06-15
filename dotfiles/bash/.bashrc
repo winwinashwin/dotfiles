@@ -33,3 +33,4 @@ fi
 source ~/.bash_completion.d/alacritty
 neofetch
 eval "$(starship init bash)"
+
